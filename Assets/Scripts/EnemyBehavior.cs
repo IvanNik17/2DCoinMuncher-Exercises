@@ -13,9 +13,7 @@ public class EnemyBehavior : MonoBehaviour
 
     int aggression = 0;
 
-    bool isGrowing = true;
-
-    Vector3 starterScale;
+    
     void Start()
     {
 
@@ -23,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour
 
         aggression = Random.Range(1, 5);
 
-        starterScale = player.transform.localScale;
+        
 
         switch (aggression)
         {
@@ -44,7 +42,7 @@ public class EnemyBehavior : MonoBehaviour
                 break;
         }
 
-        StartCoroutine("ChangeSize");
+        
     }
 
     // Update is called once per frame
@@ -61,36 +59,5 @@ public class EnemyBehavior : MonoBehaviour
     }
 
 
-    private IEnumerator ChangeSize()
-    {
-
-        while (true)
-        {
-            if (transform.localScale.x <= 1.4f * starterScale.x && isGrowing)
-            {
-                transform.localScale = transform.localScale + Vector3.one * 0.1f;
-            }
-            else if (transform.localScale.x >= 0.6f * starterScale.x && !isGrowing)
-            {
-                transform.localScale = transform.localScale - Vector3.one * 0.1f;
-            }
-
-            if (transform.localScale.x > 1.4f * starterScale.x)
-            {
-                isGrowing = false;
-            }
-            else if (transform.localScale.x < 0.6f * starterScale.x)
-            {
-                isGrowing = true;
-            }
-
-            yield return new WaitForSeconds(2);
-        }
-        
-
-
-
-
-        
-    }
+    
 }

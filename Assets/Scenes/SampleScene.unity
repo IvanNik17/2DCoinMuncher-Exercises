@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5665892717818637457, guid: 38a6d6fd49c878c40a9572058071aa85, type: 3}
+  EnemiesArray: []
   EnemyNamesArray: []
   numEnemies: 3
 --- !u!1 &424034757
@@ -827,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5665892717818637457, guid: 38a6d6fd49c878c40a9572058071aa85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6808058493755699115, guid: 38a6d6fd49c878c40a9572058071aa85, type: 3}
       propertyPath: player
