@@ -6,7 +6,6 @@ using UnityEngine;
 public class CoinSpawnerSimple : MonoBehaviour
 {
     public GameObject coinPrefab;
-    public GameObject superCoinPrefab;
     public int maxCoins = 5; 
     public float spawnInterval = 5f; 
 
@@ -31,20 +30,14 @@ public class CoinSpawnerSimple : MonoBehaviour
                 float screenX = Random.Range(-8f, 8f);
                 float screenY = Random.Range(-4.5f, 4.5f);
 
-                float superChance = Random.Range(0f, 1f);
+                
 
 
                 Vector2 randomPosition = new Vector2(screenX, screenY);
 
+                Instantiate(coinPrefab, randomPosition, Quaternion.identity);
 
-                if (superChance > 0.8f)
-                {
-                    Instantiate(superCoinPrefab, randomPosition, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(coinPrefab, randomPosition, Quaternion.identity);
-                }
+                
                     
                 currentCoinCount++;
 

@@ -58,10 +58,7 @@ public class SimpleGame : MonoBehaviour
 
         transform.position += movement;
 
-        if (playerHealth <= 0)
-        {
-            levelRestart();
-        }
+        
 
         CheckForCheat();
     }
@@ -77,27 +74,15 @@ public class SimpleGame : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("superCoin"))
-        {
-            score += 5;
-            Debug.Log("Score: " + score);
-            coinSpawner.CoinCollected();
 
-            Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("enemy") ||
-            collision.gameObject.CompareTag("bullet"))
+        if (collision.gameObject.CompareTag("enemy"))
         {
             playerHealth--;
             Debug.Log("Health: " + playerHealth);
         }
     }
 
-    void levelRestart()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+
 
     void CheckForCheat()
     {
