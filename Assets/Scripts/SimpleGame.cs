@@ -13,7 +13,7 @@ public class SimpleGame : MonoBehaviour
 
     public CoinSpawnerSimple coinSpawner;
 
-    List<char> cheatList = new List<char>();
+    
 
     void Start()
     {
@@ -63,7 +63,7 @@ public class SimpleGame : MonoBehaviour
             levelRestart();
         }
 
-        CheckForCheat();
+        
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -99,46 +99,5 @@ public class SimpleGame : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    void CheckForCheat()
-    {
-        // Check each allowed cheat key
-        if (Keyboard.current.upArrowKey.wasPressedThisFrame)
-        {
-            cheatList.Add('u');
-        }
-        else if (Keyboard.current.downArrowKey.wasPressedThisFrame)
-        {
-            cheatList.Add('d');
-        }
-        else if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-        {
-            cheatList.Add('l');
-        }
-        else if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
-        {
-            cheatList.Add('r');
-        }
-        else if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            cheatList.Add('s');
-        }
-
-        // Reset list if it gets too long
-        if (cheatList.Count > 7)
-        {
-            cheatList.Clear();
-        }
-
-        string current = new string(cheatList.ToArray());
-
-        string cheat = "ududlrs";
-
-        if (current == cheat)
-        {
-            score += 10000;
-            Debug.Log("CHEAT ACTIVATED! +10000 points!");
-
-            cheatList.Clear();
-        }
-    }
+    
 }
